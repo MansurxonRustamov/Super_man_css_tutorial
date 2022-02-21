@@ -1,0 +1,114 @@
+body{
+    background: rgb(53, 53, 180);
+    margin: 0;
+    padding: 0;
+}
+#hero{
+    width: 250px;
+    height: 358px;
+    position: relative;
+    top: 100px;
+    left: 200px;
+}
+
+
+@keyframes hero-stance{
+    from{
+        top: 0;
+    }
+    to{
+        top: -10px;
+    }
+}
+.stance{
+    visibility: hidden;
+    background: url('./hero.png');
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: hero-stance 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+
+.attack{
+   visibility: hidden;
+    background: url('./hero-attac.png');
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.idle .stance{
+    visibility: visible;
+    z-index: 2;
+}
+#hero.attackk .attack{
+    visibility: visible;
+    top: -30px;
+}
+
+
+@keyframes shadow{
+    from{
+        width: 250px;
+    }
+    to{
+        width: 225px;
+        left: 12.5px;
+    }
+}
+.shadow{
+    background: url('./shadow.png') no-repeat;
+    width: 250px;
+    position: absolute;
+    background-size: 100%;
+    bottom: -50px;
+    left: 0;
+    z-index: 1;
+    height: 84px;
+    animation: shadow 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+#hero.attackk .shadow{
+    animation: none;
+    width: 275px;
+    left: 12.5px;
+}
+
+@keyframes laser{
+    from{
+        width: 175px;
+    }
+    to{
+        width: 525px;
+    }
+}
+.laser{
+    background: url('./luch.png') no-repeat;
+    background-size: 100% 100%;
+    width: 175px;
+    height: 60px;
+    position: absolute;
+    left: 145px;
+    top: 25px;
+    animation: laser 3s infinite linear;
+}
+.laser::after{
+    content: '';
+    height: 100%;
+    width: 3px;
+    right: 0;
+    top: 1px;
+    position: absolute;
+    background: #ffe500;
+    box-shadow: 0 0 10px 4px #ffe500;
+    border-radius: 3px;
+}
